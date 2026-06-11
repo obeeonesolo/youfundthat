@@ -7,7 +7,7 @@
 // Laisser vide pour utiliser le mode démonstration (demo-data.js).
 // ============================================================
 window.YFT_CONFIG = {
-  SUPABASE_URL: "",        // ex: "https://xxxx.supabase.co"
-  SUPABASE_ANON_KEY: "",   // clé "anon public" du dashboard Supabase
+  SUPABASE_URL: "https://nralpuhptljtjmgdqpxt.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_GJbg1PUxmMOdqTzHwlHUQQ_oYGcYS2Z",
   CONTEST_EMAIL: "contester@youfundthat.eu",
 };
