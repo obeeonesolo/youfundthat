@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YouFundThat — La boussole de votre argent</title>
+<meta name="description" content="Scores publics et auditables des entreprises sur 5 axes : fiscal, lobbying, données, droits fondamentaux, empreinte démocratique.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="#/">
+    <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+      <polygon points="12,2 21.5,9 17.9,21 6.1,21 2.5,9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <circle cx="12" cy="12.6" r="2" fill="currentColor"/>
+    </svg>
+    <span>YouFundThat</span>
+  </a>
+  <nav class="site-nav">
+    <a href="#/methodologie">Méthodologie</a>
+    <a href="https://youfundthat.eu/boussole" target="_blank" rel="noopener">/boussole</a>
+  </nav>
+</header>
+
+<main id="app" aria-live="polite">
+  <!-- rendu par app.js -->
+</main>
+
+<footer class="site-footer">
+  <p>YouFundThat — initiative citoyenne belge sans but lucratif.
+     Scores calculés sur base de faits publics vérifiables.
+     <a href="#/methodologie">Méthodologie complète</a>.</p>
+  <p class="mono">Les désaccords se résolvent par les sources — pas par l'autorité éditoriale.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
+<script src="demo-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

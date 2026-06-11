@@ -1,0 +1,25 @@
+# À copier dans .github/workflows/integrations.yml
+# Secrets requis : SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
+name: Intégrations YouFundThat
+
+on:
+  schedule:
+    - cron: "0 4 1 * *"     # liens morts — le 1er de chaque mois, 04:00 UTC (section 10.3)
+  workflow_dispatch: {}      # déclenchement manuel possible
+
+jobs:
+  linkrot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci
+        working-directory: integrations
+      - name: Vérification des sources primaires
+        working-directory: integrations
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node linkrot.mjs
+        # exit code 2 = liens morts détectés -> le job échoue -> notification

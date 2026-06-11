@@ -1,0 +1,17 @@
+# Dépendances
+node_modules/
+integrations/node_modules/
+
+# Secrets — la clé service_role ne doit JAMAIS être commitée
+.env
+.env.*
+*.key
+
+# Supabase local
+supabase/.temp/
+supabase/.branches/
+
+# Système / éditeur
+.DS_Store
+Thumbs.db
+*.log
