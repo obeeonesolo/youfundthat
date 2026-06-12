@@ -158,10 +158,24 @@
   async function viewHome(query) {
     app.innerHTML = `${demoBanner()}
       <section class="hero">
-        <h1>Où va l'argent que vous <em>donnez</em> aux entreprises ?</h1>
-        <p class="lede">Chaque entreprise est notée de −10 à +10 sur 5 axes — fiscalité, lobbying,
-        données, droits fondamentaux, empreinte démocratique — sur base exclusive de faits publics,
-        sourcés et vérifiables. Pas d'opinion : des preuves.</p>
+        <h1>Votre argent finance leurs pratiques.</h1>
+        <p class="lede">Quand vous achetez ou investissez, vous financez un modèle d'entreprise.
+        YouFundThat documente ce que ce modèle implique réellement — sur cinq axes :
+        fiscalité, lobbying, données personnelles, droits des travailleurs, empreinte démocratique.</p>
+        <div class="pillars">
+          <div class="pillar">
+            <strong>Faits uniquement</strong>
+            <span>Pas d'opinion, pas d'estimation. Un fait est prouvé par une source publique datée, ou ne compte pas.</span>
+          </div>
+          <div class="pillar">
+            <strong>Double validation</strong>
+            <span>Chaque fait est proposé par un éditeur et validé par un second, indépendant. Un seul acteur ne peut pas manipuler un score.</span>
+          </div>
+          <div class="pillar">
+            <strong>Audit immuable</strong>
+            <span>Chaque ajout ou modification est tracé publiquement et ne peut être effacé — même par nous.</span>
+          </div>
+        </div>
         <form class="search" id="searchForm" role="search">
           <input id="searchInput" type="search" placeholder="Chercher une entreprise…"
                  aria-label="Chercher une entreprise" value="${esc(query || "")}">
@@ -302,6 +316,38 @@
       </aside>`;
   }
 
+  function viewApropos() {
+    app.innerHTML = `<div class="prose">
+      <a class="back" href="#/">← Retour</a>
+      <h1>À propos</h1>
+
+      <h2>Qui sommes-nous</h2>
+      <p>YouFundThat est une initiative citoyenne belge sans but lucratif.
+      Nous ne recevons aucun financement des entreprises que nous notons,
+      aucune recette publicitaire, aucune subvention conditionnelle à nos résultats.</p>
+
+      <h2>Pourquoi ce projet</h2>
+      <p>Les notations ESG du marché sont largement opaques : leur méthodologie est propriétaire,
+      et les entreprises paient souvent pour être évaluées. YouFundThat part du principe inverse.</p>
+      <p>Notre méthodologie est publique, versionnée et modifiable par consensus.
+      Nos scores sont recalculables par n'importe qui à partir des mêmes sources.
+      Notre journal d'audit est accessible à tous et ne peut être ni modifié ni supprimé — même par nous.</p>
+
+      <h2>Ce que nous ne sommes pas</h2>
+      <p>Un outil militant. Nous ne prenons pas position sur les politiques fiscales,
+      le niveau de régulation souhaitable ou la légitimité du lobbying en général.
+      Nous documentons ce qui existe : un fait est prouvé par une source publique ou ne compte pas.
+      Quand l'interprétation d'une source est ambiguë, nous retenons systématiquement
+      celle qui est <strong>la moins défavorable à l'entreprise notée</strong>.</p>
+
+      <h2>Comment contribuer</h2>
+      <p>Vous pensez qu'un fait est inexact, qu'une source a disparu, ou qu'une entreprise manque ?
+      Écrivez-nous : <a href="mailto:contester@youfundthat.eu">contester@youfundthat.eu</a>.
+      Chaque contestation est examinée par deux éditeurs indépendants, conformément au même
+      processus de double validation que pour l'ajout initial.</p>
+    </div>`;
+  }
+
   function viewMethodologie() {
     app.innerHTML = `<div class="prose">
       <a class="back" href="#/">← Retour</a>
@@ -332,6 +378,7 @@
     const mQuery = h.match(/[?&]q=([^&]*)/);
     if (mCompany) return viewCompany(decodeURIComponent(mCompany[1]));
     if (h.startsWith("#/methodologie")) return viewMethodologie();
+    if (h.startsWith("#/apropos")) return viewApropos();
     return viewHome(mQuery ? decodeURIComponent(mQuery[1]) : "");
   }
   window.addEventListener("hashchange", route);
