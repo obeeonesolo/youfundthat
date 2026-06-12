@@ -321,7 +321,7 @@
       <p>Les faits de plus de 5 ans comptent pour moitié ; ceux de plus de 10 ans sont exclus du score
       mais restent visibles. Le journal de toutes les modifications est public et immuable.
       La méthodologie complète (V1.1) et son changelog sont publiés sur
-      <a href="https://youfundthat.eu/boussole" target="_blank" rel="noopener">youfundthat.eu/boussole</a>.</p>
+      <a href="https://github.com/obeeonesolo/youfundthat" target="_blank" rel="noopener">github.com/obeeonesolo/youfundthat</a>.</p>
     </div>`;
   }
 
