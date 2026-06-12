@@ -22,11 +22,11 @@
   ];
 
   const LABELS = {
-    aligne:                 { txt: "Aligné" },
-    mitige:                 { txt: "Mitigé" },
-    problematique:          { txt: "Problématique" },
-    critique:               { txt: "Critique" },
-    donnees_insuffisantes:  { txt: "Données insuffisantes" },
+    aligne:                 { txt: "Exemplaire" },
+    mitige:                 { txt: "Neutre" },
+    problematique:          { txt: "Préoccupant" },
+    critique:               { txt: "Très préoccupant" },
+    donnees_insuffisantes:  { txt: "Non évalué" },
   };
 
   /* ---------- Moteur de score — miroir de sql/02_scoring.sql ---------- */
@@ -191,7 +191,7 @@
           <div>
             <h3>${esc(c.name)}</h3>
             <div class="meta">${esc(c.wikidata_qid || "")} · global ${c.score_global == null ? "—" : fmt(c.score_global)}</div>
-            <span class="badge" data-label="${esc(c.label || "donnees_insuffisantes")}">${LABELS[c.label]?.txt || "Données insuffisantes"}</span>
+            <span class="badge" data-label="${esc(c.label || "donnees_insuffisantes")}">${LABELS[c.label]?.txt || "Non évalué"}</span>
           </div>
         </a>`).join("");
     } catch (err) {
@@ -312,11 +312,11 @@
       n'importe qui à partir des sources primaires).</p>
       <table>
         <tr><th>Label</th><th>Score global</th></tr>
-        <tr><td>✅ Aligné</td><td>score &gt; +5,0</td></tr>
-        <tr><td>🟡 Mitigé</td><td>−2,0 ≤ score ≤ +5,0</td></tr>
-        <tr><td>🟠 Problématique</td><td>−6,0 ≤ score &lt; −2,0</td></tr>
-        <tr><td>🔴 Critique</td><td>score &lt; −6,0</td></tr>
-        <tr><td>⚪ Données insuffisantes</td><td>aucun fait vérifié</td></tr>
+        <tr><td>✅ Exemplaire</td><td>score &gt; +5,0</td></tr>
+        <tr><td>🟡 Neutre</td><td>−2,0 ≤ score ≤ +5,0</td></tr>
+        <tr><td>🟠 Préoccupant</td><td>−6,0 ≤ score &lt; −2,0</td></tr>
+        <tr><td>🔴 Très préoccupant</td><td>score &lt; −6,0</td></tr>
+        <tr><td>⚪ Non évalué</td><td>aucun fait vérifié</td></tr>
       </table>
       <p>Les faits de plus de 5 ans comptent pour moitié ; ceux de plus de 10 ans sont exclus du score
       mais restent visibles. Le journal de toutes les modifications est public et immuable.
